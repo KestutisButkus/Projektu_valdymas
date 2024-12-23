@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %} <!-- Pridedame šią eilutę, kad įkeltume 'static' žymas -->
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Employees</h1>
+    <p class="text-center">List of employees</p>
+    <ul class="list-group">
+        {% for employee in employees %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-md-2">
+                    {% if employee.photo %}
+                    <img src="{{ employee.photo.url }}" class="img-thumbnail" alt="Photo of {{ employee.first_name }}">
+                    {% else %}
+                    <img src="{% static 'images/default-profile.png' %}" class="img-thumbnail" alt="Default photo">
+                    {% endif %}
+                </div>
+                <div class="col-md-10">
+                    <a href="{% url 'employee_detail' employee.id %}">
+                        <strong>{{ employee.first_name }} {{ employee.last_name }}</strong>
+                    </a><br>
+                    <small>{{ employee.position }}</small>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

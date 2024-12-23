@@ -1,0 +1,55 @@
+body {
+    background-color: #f0f0f0; /* Pakeiskite į norimą spalvą */
+}
+
+.card-img-top {
+    max-width: 300px;
+    max-height: 200px;
+    object-fit: contain;
+    padding: 10px;
+    margin: auto;
+}
+
+.col-md-4 .card {
+    transition: transform 0.3s ease;
+}
+
+.col-md-4 .card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+}
+
+.navbar-brand {
+    text-transform: uppercase;
+    color: #ccc !important; /* Teksto spalva su !important */
+    font-size: 1.2rem; /* Teksto dydis */
+    font-weight: bold; /* Stiprus šriftas */
+    transition: transform 0.3s ease; /* Sklandus perėjimas */
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02); /* Padidėjimo efektas užvedus */
+}
+
+.nav-link {
+    color: #ddd; /* Teksto spalva */
+    font-size: 0.7rem; /* Teksto dydis */
+}
+.nav-link:hover {
+    color: #eee; /* Teksto spalva */
+    font-size: 0.7rem; /* Teksto dydis */
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover .card {
+    transform: scale(1.02); /* Padidėjimo efektas užvedus */
+    transition: transform 0.3s ease;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    margin-bottom: 20px; /* Tarpas tarp kortelių */
+}

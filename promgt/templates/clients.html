@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Clients</h1>
+    <p class="text-center">List of clients</p>
+    <ul class="list-group">
+        {% for client in clients %}
+        <li class="list-group-item">
+            <a href="{% url 'client_detail' client.id %}">
+                <strong>{{ client.first_name }} {{ client.last_name }}</strong>
+            </a><br>
+            <small>{{ client.company }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

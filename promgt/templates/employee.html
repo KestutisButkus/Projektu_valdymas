@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">{{ employee.first_name }} {{ employee.last_name }}</h1>
+    <p class="text-center">{{ employee.position }}</p>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            {% if employee.photo %}
+            <img src="{{ employee.photo.url }}" class="img-thumbnail" alt="Photo of {{ employee.first_name }}">
+            {% else %}
+            <img src="{% static 'images/default-profile.png' %}" class="img-thumbnail" alt="Default photo">
+            {% endif %}
+        </div>
+        <div class="col-md-8">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Position:</strong> {{ employee.position }}</li>
+                <!-- Add more fields if necessary -->
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

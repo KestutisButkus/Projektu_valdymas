@@ -1,0 +1,15 @@
+{% extends "admin/base_site.html" %}
+
+{% load static %}  <!-- Pridedame šią eilutę -->
+
+{% block extrahead %}
+{{ block.super }}
+<script src="{% static 'tinymce/tinymce.min.js' %}"></script>
+<script>
+    tinymce.init({
+        selector: 'textarea',
+        plugins: 'link image code',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+    });
+</script>
+{% endblock %}

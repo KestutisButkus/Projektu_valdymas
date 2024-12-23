@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">{{ client.first_name }} {{ client.last_name }}</h1>
+    <p class="text-center">{{ client.company }}</p>
+    <ul class="list-group mt-3">
+        <li class="list-group-item"><strong>Email:</strong> {{ client.email }}</li>
+        <li class="list-group-item"><strong>Phone:</strong> {{ client.phone }}</li>
+        <li class="list-group-item"><strong>Address:</strong> {{ client.address }}</li>
+    </ul>
+</div>
+{% endblock %}

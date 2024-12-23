@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance App</title>
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome to the Distance App!</h1>
+
+        <div class="card p-4 mb-4">
+            <h2 class="mb-3">Calculate Distance Between Cities</h2>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Calculate</button>
+            </form>
+        </div>
+
+        {% if distances %}
+            <div class="card p-4 mb-4">
+                <h2 class="mb-3">Distances:</h2>
+                <ul class="list-group">
+                    {% for city, distance in distances %}
+                        <li class="list-group-item">{{ city }}: {{ distance }} km</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if closest_city %}
+            <div class="card p-4">
+                <h2 class="mb-3">Closest City: {{ closest_city.0 }} ({{ closest_city.1 }} km)</h2>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

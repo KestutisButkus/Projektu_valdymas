@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Tasks</h1>
+    <p class="text-center">List of tasks</p>
+    <ul class="list-group">
+        {% for task in tasks %}
+        <li class="list-group-item">
+            <a href="{% url 'task_detail' task.id %}">
+                <strong>{{ task.name }}</strong>
+            </a><br>
+            <small>{{ task.description }}</small>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

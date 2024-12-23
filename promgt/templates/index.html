@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Projects management system{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Welcome to the Homepage!</h2>
+    <p>This is the main page of your website.</p>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'projects' %}" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Projects</h5>
+                        <p class="card-text">{{ num_projects }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'employees' %}" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Employees</h5>
+                        <p class="card-text">{{ num_employee }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'clients' %}" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Clients</h5>
+                        <p class="card-text">{{ num_clients }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-6 mb-3">
+            <a href="{% url 'tasks' %}" class="card-link">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Tasks</h5>
+                        <p class="card-text">{{ num_tasks }}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {% if user.is_authenticated %}
+    <div class="row mt-4" id="user-projects">
+        <div class="col-md-12">
+            <h3>Your Projects</h3>
+            <ul class="list-group">
+                {% for project in user_projects %}
+                <li class="list-group-item">
+                    <a href="{% url 'project_detail' project.id %}">{{ project.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
