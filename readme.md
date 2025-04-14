@@ -1,4 +1,5 @@
 # Projektų Valdymas
+![](pro_screen.png)
 
 Tai yra Django projektas, kuris apima dvi pagrindines aplikacijas: `Projektų valdymas` ir `Distance`.
 
@@ -13,6 +14,7 @@ Tai yra Django projektas, kuris apima dvi pagrindines aplikacijas: `Projektų va
 - Projektų peržiūra.
 
 ## 2. Distance (distance)
+![](dis_screen.png)
 Ši aplikacija suskaičiuoja atstumus iki pagrindinių miestų.
 
 ### Pagrindinės funkcijos:

@@ -19,7 +19,7 @@ def city_distance_view(request):
     if request.method == 'POST':
         form = CityDistanceForm(request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
+            # name = form.cleaned_data['name']
             latitude = form.cleaned_data['latitude']
             longitude = form.cleaned_data['longitude']
 
